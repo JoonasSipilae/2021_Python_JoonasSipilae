@@ -71,6 +71,7 @@ print(Longtext)
 # str muuttaa stringiksi
 
 print(bool(0))  # kaikki paitsi 0 on true
+print(bool(-1))
 print()
 
 # if elif else
@@ -88,4 +89,89 @@ print("ohjelma päättyy")
 # Käyttäjän syöte
 print("Anna sana")
 syote = input()
-print("Käyttäjän syötti sanan " + syote)
+print("Käyttäjän syötti sanan: " + syote)
+
+if syote:
+    # jos käyttäjä antaa yhdenkin merkin, menee sisään, muuten ei.
+    print("Annoit ainakin yhden merkin")
+else:
+    print("Et antanut yhtään merkkiä")
+print()
+
+
+# lista
+cars = ["Volvo", "Toyota", "Peugeot", "Audi"]
+# listan asioiden ei tarvitse olla samaa tyyppiä. Kannattaa silti pitää ne samana
+print(cars[0]) # 0. eli eka
+print(cars[1:3]) #1-2
+print(cars[-1]) # vika
+print()
+print(cars)
+
+cars.append("Jeep") # jeep on nyt listan vika
+cars.insert(2, "Fiat") # fiat indeksiin 2
+print(cars)
+
+deleted = cars.pop() # deletes last one if not given a number
+print(cars)
+deleted = deleted + cars.pop(1) # deletes car at index 1
+print(cars)
+
+# deleted listassa on nyt poistettu auto
+print(deleted)
+
+del cars[1:3] # deletes indexes 1 and 2
+print(cars)
+
+# del cars    poistaa koko listan. Ei tyhjennä vaan tuhoaa sen.
+cars.clear() # tyhjentää listan
+print(cars) # lista on nyt tyhjä
+print()
+
+
+# tuple     on muuttumaton tietorakenne. ei voi lisätä tai poistaa
+phones = ("Apple", "Samsung", "Nokia")
+print(phones)
+print(phones[1])
+#del phones   koko tuplen voi poistaa, mutta yksittäistä alkiota ei voi.
+print()
+
+phoneList = list(phones)    # phonelist lista on sama kuin tuple. tätä voi muokata.
+phoneList.append("OnePlus") # lisätään arvo
+phones = tuple(phoneList)   # muutetaan tuple takaisin listaksi
+print(phones)
+print()
+
+
+# set.  määritellään { ja }
+units = {"tank", "soldier", "ship", "plane"}
+print(units)
+
+units.add("car")
+print(units)
+
+# muutetaan lista setiksi ja takaisin listaksi (tämä poistaa duplikaatit)
+unitList = ["tank", "ship", "dog"]
+print(unitList)
+unitList = list(set(unitList))
+print(unitList)
+
+# settiin voi lisätä useamman alkion
+units.update(["heavy tank", "helicopter"])
+print(units)
+
+# discard ja remove poistavan alkion setistä.
+units.discard("dog")
+units.discard("dog")
+print(units)
+
+# units.remove("dog") antaa errorin jossei ole
+print(units)
+
+# pop toimii myös setille
+random = units.pop()
+print(random)
+print(units)
+print()
+
+
